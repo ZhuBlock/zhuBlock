@@ -9,7 +9,7 @@ public class ZhuBlock : SmartContract
         {
             case "insertHelloWorld":
                 return insertHelloWorld();
-            case "getHelloworld":
+            case "getHelloWorld":
                 return getHelloWorld();
             default:
                 return false;
