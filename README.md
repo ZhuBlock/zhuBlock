@@ -41,9 +41,14 @@ import contract /smart-contracts/contract.avm 0710 05 True False
 testinvoke e60a3fa8149a853eb4dff4f6ed93c931646a9e22 RegisterDomain ['AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y', 'zhu-block.nos', 'AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y', 'http://localhost:3001/']
 testinvoke e60a3fa8149a853eb4dff4f6ed93c931646a9e22 GetDomain ['AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y', 'zhu-block.nos']
 ```
-Visit zhu-block.nos in client!
 
-### 4. Stopping the environment
+### 4. Test it ;)
+Add the following entry to your hosts file (eg. on Ubuntu /etc/hosts):
+127.0.0.1 neo-nodes
+
+Now visit zhu-block.nos in client!
+
+### 5. Stopping the environment
 When you're done developing, close the client and run this command:
 ```bash
 make stop
