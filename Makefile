@@ -26,7 +26,7 @@ install: clean nos-deps zhu-block
 zhu-block:
 	@echo "\n"
 	@echo "${ECHO_PREFIX} Building Zhu-Block container image..."
-	@cd ./docker && docker-compose build --force-rm --no-cache --build-arg user=$$(id -u):$$(id -g) zhu-block
+	@cd ./docker && docker-compose build --force-rm --no-cache --build-arg user=$$(id -u):$$(id -g) zhu-block > /dev/null
 
 	@echo "\n"
 	@echo "${ECHO_PREFIX} Installing Zhu-Block dependencies..."
@@ -53,7 +53,7 @@ stop:
 	@cd ./nOS/nos-local/neo-local && docker-compose stop
 
 	@echo "\n"
-	@echo "${ECHO_PREFIX} Stoping Zhu-Block container..."
+	@echo "${ECHO_PREFIX} Removing Zhu-Block container..."
 	@cd ./docker && docker-compose down
 
 clean:
@@ -76,4 +76,13 @@ nos-deps:
 	@echo "\n"
 	@echo "${ECHO_PREFIX} Installing NEO local blockchain..."
 	@cd ./nOS/nos-local && git submodule update --init && cp ./contracts/*.py ./neo-local/smart-contracts
-	@cd ./nOS/nos-local/neo-local && docker-compose build --force-rm --no-cache
+	@cd ./nOS/nos-local/neo-local && docker-compose build --force-rm --no-cache > /dev/null
+
+remove-all: stop
+	@echo "\n"
+	@echo "${ECHO_PREFIX} Removing NEO local blockchain..."
+	@cd ./nOS/nos-local/neo-local && docker-compose down
+
+init-neo-local:
+	@echo "${ECHO_PREFIX} Starting NEO local prompt..."
+	@docker exec -it neo-python np-prompt -v -p

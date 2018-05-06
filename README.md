@@ -31,15 +31,14 @@ make start
 
 IMPORTANT - this should be done only once (the first time you run "make start" command):  
 ```bash
-docker exec neo-python np-prompt -p -v
+make init-neo-local
 ```
-Wait for all the blocks to download and execute following commands:
+Wait for all the blocks to download and execute following commands (wallet password is 'coz'):
 ```bash
 open wallet ./neo-privnet.wallet
 build /smart-contracts/contract.py
 import contract /smart-contracts/contract.avm 0710 05 True False
 testinvoke e60a3fa8149a853eb4dff4f6ed93c931646a9e22 RegisterDomain ['AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y', 'zhu-block.nos', 'AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y', 'http://localhost:3001/']
-testinvoke e60a3fa8149a853eb4dff4f6ed93c931646a9e22 GetDomain ['AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y', 'zhu-block.nos']
 ```
 
 ### 4. Test it ;)
