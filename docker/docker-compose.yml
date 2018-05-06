@@ -1,0 +1,12 @@
+version: '3.1'
+services:
+    zhu-block:
+        build: .
+        image: zhu-blockers/react_app
+        container_name: zhu-block
+        ports:
+            - 3001:3000
+        volumes:
+            - ./../:/home/zhu-block
+        working_dir: /home/zhu-block
+        command: yarn start
