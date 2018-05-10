@@ -1,5 +1,5 @@
 {
-    "hash":"0x1357792faf48fdcc455238c7d890ca3cc992e5ec",
+    "hash":"0x3b26938ff20b42eaa62f64d3cfe0915679e88cd0",
     "entrypoint":"Main",
     "functions":
     [
@@ -17,6 +17,17 @@
                 }
             ],
             "returntype":"Any"
+        },
+        {
+            "name":"GetPool",
+            "parameters":
+            [
+                {
+                    "name":"poolID",
+                    "type":"ByteArray"
+                }
+            ],
+            "returntype":"Unknown:ZhuBlock/Pool"
         }
     ],
     "events":
