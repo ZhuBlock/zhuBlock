@@ -47,6 +47,11 @@ Copy the smart contract's hash generated from the previous step (in my example: 
 
 Try out these 2 functions in the console:
 ```
-testinvoke 1357792faf48fdcc455238c7d890ca3cc992e5ec insertHelloWorld []
-testinvoke 1357792faf48fdcc455238c7d890ca3cc992e5ec getHelloWorld []
+addPool(byte[] owner, BigInteger poolHardCap, BigInteger minContribution, BigInteger maxContribution, BigInteger fees)
+testinvoke 1357792faf48fdcc455238c7d890ca3cc992e5ec addPool ['AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y', '9999', '199', '299', '99']
+
+getPool(byte[] owner, byte[] poolID)
+testinvoke 1357792faf48fdcc455238c7d890ca3cc992e5ec getPool ['AK2nJJpJr6o664CWJKi1QRXjqeic2zRp8y', '1']
 ```
+getPool(...) will return an array of hex.
+To transform the results from hex to string: https://peterlinx.github.io/DataTransformationTools/
